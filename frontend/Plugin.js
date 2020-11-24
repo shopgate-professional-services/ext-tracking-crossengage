@@ -122,7 +122,7 @@ class Crossengage extends TrackingPlugin {
 
       this.track('Searched Products', {
         searchTerm: data.query,
-        productsDisplayed: Math.min(data.resultCount, 32),
+        productsDisplayed: Math.min(data.hits, 32),
       });
     });
 
@@ -137,6 +137,16 @@ class Crossengage extends TrackingPlugin {
         currency: data.currency,
         cart: getCartAttributesFromOrder(data, this.useNetPrices),
       });
+    });
+
+    // Opt-out
+    this.register.removeTracker(() => {
+      window.xng.optOutTracking();
+    });
+
+    // Revert opt-out
+    this.register.addTracker(() => {
+      window.xng.optInTracking();
     });
   }
 
