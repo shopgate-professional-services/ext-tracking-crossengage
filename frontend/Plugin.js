@@ -19,11 +19,7 @@ class Crossengage extends TrackingPlugin {
     super('crossengage');
 
     const options = {
-      /**
-       * UseNetPrices and excludeShipping only effects the purchase event data
-       */
       useNetPrices: false,
-      excludeShipping: false,
       ...config,
     };
 
@@ -32,7 +28,6 @@ class Crossengage extends TrackingPlugin {
     this.userMail = options.userMail;
 
     this.useNetPrices = options.useNetPrices;
-    this.excludeShipping = options.excludeShipping;
     this.sendParentData = options.sendParentData;
 
     // These pages are not tracked as regular pageviews
@@ -108,9 +103,6 @@ class Crossengage extends TrackingPlugin {
       });
     });
 
-    // TODO:
-    // Analytics.track('Removed Product', attributes);
-
     this.register.loginSuccess((user) => {
       this.userMail = user.mail;
       this.identify(this.userMail);
@@ -149,7 +141,6 @@ class Crossengage extends TrackingPlugin {
   }
 
   identify(email) {
-    console.warn('identify', email);
     window.analytics.identify({
       email,
       noUserId: 'true',
@@ -157,12 +148,10 @@ class Crossengage extends TrackingPlugin {
   }
 
   trackPage() {
-    console.warn('page');
     window.analytics.page();
   }
 
   track(event, attributes) {
-    console.warn(event, attributes);
     window.analytics.track(event, attributes);
   }
 }

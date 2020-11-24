@@ -6,33 +6,28 @@ Integration of crossengages tracking SDK https://documentation.crossengage.io/tr
 
 ## Configuration
 
-The extension get the values for clientKey, siteid, langid, countryid and sendParentData from a shop config (Key: `sg_connect_tracking_econda`).
+### xngID
+Get it from https://app.crossengage.io/settings/system-setup "Web tracking and response data API key"
 
-**Example Config:**
-```
-{
-    "siteid": "de",
-    "clientKey": "1234-acbd-",
-    "langid": "de",
-    "countryid": "de",
-    "sendParentData": true
-}
-```
+### additionalOptions
+Use it to set a businessUnit https://documentation.crossengage.io/tracking/business-units
 
 ## Supported Events
-- Pageview
-- Search
-- Add to cart
-- Login success/fail
-- Purchase
+- Identify https://documentation.crossengage.io/tracking/user-behaviour/identify-method
+- Pageview https://documentation.crossengage.io/tracking/user-behaviour/page-method
+- Search https://documentation.crossengage.io/tracking/user-behaviour/track-method#searched-products
+- Add to cart https://documentation.crossengage.io/tracking/user-behaviour/track-method#added-product-removed-product
+- Purchase https://documentation.crossengage.io/tracking/user-behaviour/track-method#completed-order
+- Viewed Product https://documentation.crossengage.io/tracking/user-behaviour/track-method#viewed-product
+- Viewed Cart https://documentation.crossengage.io/tracking/user-behaviour/track-method#viewed-cart
 
 ## Not supported yet
-- `group` field for product view
-- `var1`, `var2`, `var3` fields for product view
-- `location` field for purchase
+- `coupon` field purchase
+- `category` fields for products
+- `Removed Product` event
 
 ## Documentation
-- https://support.econda.de/display/INDE/Web-Tracking
+- https://documentation.crossengage.io/
 
 ## Changelog
 

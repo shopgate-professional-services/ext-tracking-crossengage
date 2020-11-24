@@ -12,7 +12,7 @@
     "xngID": {
       "type": "admin",
       "destination": "frontend",
-      "default": "3fd7e9cdfa262bba",
+      "default": "",
       "params": {
         "label": "xngID",
         "type": "text"
