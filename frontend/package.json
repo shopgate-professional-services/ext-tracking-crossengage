@@ -22,10 +22,10 @@
     "@shopgate/tracking-core": "^5.0.3"
   },
   "devDependencies": {
-    "@shopgate/eslint-config": "^5.0.3",
-    "@shopgate/pwa-tracking": "^5.0.3",
-    "@shopgate/pwa-common": "^5.0.3",
-    "eslint": "^4.19.1",
+    "@shopgate/eslint-config": "^6.13.9",
+    "@shopgate/pwa-tracking": "^6.13.9",
+    "@shopgate/pwa-common": "^6.13.9",
+    "eslint": "^6.8.0",
     "lint-staged": "4.0.3",
     "pre-commit": "1.2.2"
   }
