@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0-rc.2",
+  "id": "@shopgate-project/tracking-crossengage",
+  "components": [
+    {
+      "id": "init",
+      "path": "frontend/index.js",
+      "type": "tracking"
+    }
+  ],
+  "configuration": {
+    "xngID": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": "",
+      "params": {
+        "label": "xngID",
+        "type": "text"
+      }
+    },
+    "additionalOptions": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "businessUnit": "App DE"
+      },
+      "params": {
+        "label": "additionalOptions for SDK",
+        "type": "json"
+      }
+    }
+  }
+}
