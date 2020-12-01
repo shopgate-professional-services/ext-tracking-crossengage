@@ -78,6 +78,9 @@ class Crossengage extends TrackingPlugin {
     });
 
     this.register.viewContent((data, { product }) => {
+      // The trackPage is needed here because of a bug in the SDK.
+      // Otherwise Viewed Product has the context object from the page before
+      this.trackPage();
       this.track('Viewed Product', {
         sku: product.uid,
         name: product.name,
