@@ -12,6 +12,9 @@ Get it from https://app.crossengage.io/settings/system-setup "Web tracking and r
 ### additionalOptions
 Use it to set a businessUnit https://documentation.crossengage.io/tracking/business-units
 
+### trackOrders
+Use it to specify if orders should be tracked to crossengage
+
 ## Supported Events
 - Identify https://documentation.crossengage.io/tracking/user-behaviour/identify-method
 - Pageview https://documentation.crossengage.io/tracking/user-behaviour/page-method
