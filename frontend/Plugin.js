@@ -20,6 +20,7 @@ class Crossengage extends TrackingPlugin {
 
     const options = {
       useNetPrices: false,
+      trackOrders: true,
       ...config,
     };
 
@@ -29,6 +30,7 @@ class Crossengage extends TrackingPlugin {
 
     this.useNetPrices = options.useNetPrices;
     this.sendParentData = options.sendParentData;
+    this.trackOrders = options.trackOrders;
 
     // These pages are not tracked as regular pageviews
     this.ignoredPageviews = ['item'];
@@ -129,18 +131,20 @@ class Crossengage extends TrackingPlugin {
       });
     });
 
-    this.register.purchase((data, { order }) => {
-      this.track('Completed Order', {
-        orderId: order.number,
-        total: parseFloat(this.useNetPrices ? order.amount.net : order.amount.gross),
-        shipping: parseFloat(order.shipping.amount[this.useNetPrices ? 'net' : 'gross']),
-        tax: data.tax,
-        // "discount": 5,
-        // "coupon": "hasbros",
-        currency: data.currency,
-        cart: getCartAttributesFromOrder(data, this.useNetPrices),
+    if (this.trackOrders) {
+      this.register.purchase((data, { order }) => {
+        this.track('Completed Order', {
+          orderId: order.number,
+          total: parseFloat(this.useNetPrices ? order.amount.net : order.amount.gross),
+          shipping: parseFloat(order.shipping.amount[this.useNetPrices ? 'net' : 'gross']),
+          tax: data.tax,
+          // "discount": 5,
+          // "coupon": "hasbros",
+          currency: data.currency,
+          cart: getCartAttributesFromOrder(data, this.useNetPrices),
+        });
       });
-    });
+    }
 
     // Opt-out
     this.register.removeTracker(() => {

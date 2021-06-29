@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "id": "@shopgate-project/tracking-crossengage",
   "components": [
     {
@@ -27,6 +27,15 @@
       "params": {
         "label": "additionalOptions for SDK",
         "type": "json"
+      }
+    },
+    "trackOrders": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": true,
+      "params": {
+        "label": "Flag if orders should be tracked or not",
+        "type": "checkbox"
       }
     }
   }

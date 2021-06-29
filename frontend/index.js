@@ -12,6 +12,7 @@ export default function init({ state }) {
   new Plugin({
     xngID: config.xngID,
     additionalOptions: config.additionalOptions,
+    trackOrders: config.trackOrders,
     userMail,
   });
 }
